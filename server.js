@@ -1,8 +1,9 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const mongoConnect = require('./models/employee').mongoConnect;
+const mongoConnect = require('./utilities/db').mongoConnect;
 const employeeRoute = require('./routes/employeeRoute');
+const app = express();
 
 app.set('view engine', ejs);
 app.use(bodyParser.urlencoded({extended: true}));
