@@ -1,3 +1,4 @@
+const { ObjectID } = require('bson');
 const mongodb = require('mongodb');
 const getDb = require('../utilities/db').getDb; 
 class Employee {
@@ -23,11 +24,26 @@ class Employee {
         });
     }
 
+    static delete(id){
+        const db = getDb();
+        let dbOperation;
+        return dbOperation = db.collection('employees').deleteOne({_id: new mongodb.ObjectId(id)})
+        .then(result => {
+            console.log("success");
+            return result;
+        })
+        .catch(error=>{
+            console.log(error);
+            throw error;
+        });
+    }
+
     static fetchAll() {
         const db = getDb();
 
         return db.collection('employees').find().toArray()
         .then(employees => {
+            console.log(employees._id)
             return employees;
         })
         .catch(error => {

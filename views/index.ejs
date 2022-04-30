@@ -4,21 +4,20 @@
 <body>
     <div class="container">
         <div class="title-container">
-            <h1>Employees from the database</h1>
+            <h1>Employees from the database <button onclick="location.href='/getAddEmployee';" style="text-align:right">Add employee</button></h1>
             <br>
-            <a href="/getAddEmployee">Add employee</a>
         </div>
     <% if (data.length > 0) { %>    
         <div class="table-container">
             <table id="dataTable" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <td>Name</td>
+                        <td>Position</td>
+                        <td>Office</td>
+                        <td>Age</td>
+                        <td>Start date</td>
+                        <td>Salary</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +29,10 @@
                        <td><%= data[i].age %></td>
                        <td><%= data[i].start_date %></td>
                        <td><%= data[i].salary %></td>
+                       <form action="/deleteEmployee" method="POST">
+                        <input type="hidden" value="<%= data[i]._id %>" name="employeeId">
+                        <td><button class="btn" type="submit">Delete</button></td>
+                       </form>
                     </tr>
                     <% } %>
                 </tbody>
