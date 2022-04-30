@@ -1,6 +1,6 @@
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
-let connectionString = 'mongodb://localhost:27017/employeeDB'
+let connectionString = 'mongodb://localhost:27017/employeeDB';
 let _db;
 
 const mongoConnect = (cb) => {
