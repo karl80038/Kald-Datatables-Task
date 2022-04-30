@@ -1,11 +1,18 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const mongoConnect = require('./utilities/db').mongoConnect;
+const mongoConnect = require('./models/employee').mongoConnect;
+const employeeRoute = require('./routes/employeeRoute');
+
+app.set('view engine', ejs);
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('public'));
+
+app.use(employeeRoute);
 
 
 app.use((req,res)=>{
-
+    res.render('404.ejs', {pageTitle: "Page Not Found"});
 });
 
 mongoConnect(() => {

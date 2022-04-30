@@ -1,0 +1,25 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+</head>
+<body>
+<h1>Add employee</h1>
+<div class="container">
+    <div class="form">
+        <form action="/submitData" method="POST">
+            <label>First and Last Name:</label>
+            <input type="text" id="name" name="name">
+            <label>Position:</label>
+            <input type="text" id="position" name="position">
+            <label>Office:</label>
+            <input type="text" id="office" name="office">
+            <label>Age:</label>
+            <input type="text" id="age" name="age">
+            <label>Start Date</label>
+            <input type="text" id="start_date" name="start_date">
+            <label>Salary</label>
+            <input type="text" id="salary" name="salary">
+            <input type="submit">
+        </form>
+    </div>    
+</div>
+<%- include('include/end.ejs') %>
